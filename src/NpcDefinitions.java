@@ -171,6 +171,7 @@ final class NpcDefinitions implements Comparator {
 					|| id == 524 // barb village peksa's helm store
 					|| id == 1176 // ardougne zenesha's platebody store
 					|| id == 1602 // mage bank chamber guardian
+					|| id == 7240 // zeah wc guild perrys axe shop
 			) {
 				npcdef_1_.actions = new String[5];
 				npcdef_1_.actions[0] = "Trade -";
