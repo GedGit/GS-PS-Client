@@ -88,8 +88,9 @@ public class ItemDefinitions extends Node {
 			if (id == 20527)
 				newItemDef.name = "Wintertodt reward token";
 			
-			//if (id == 10498)
-			//	newItemDef.invOptions[2] = "Upgrade";
+			// Removing clue scroll check-steps option
+			if (id == 12179 || id == 12029 || id == 12542 || id == 12073 || id == 19835)
+				newItemDef.invOptions[1] = null;
 
 			ItemComposite.ITEMS.method_z_void(newItemDef, id);
 			itemDef = newItemDef;

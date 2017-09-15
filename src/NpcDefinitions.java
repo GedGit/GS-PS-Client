@@ -172,6 +172,9 @@ final class NpcDefinitions implements Comparator {
 					|| id == 1176 // ardougne zenesha's platebody store
 					|| id == 1602 // mage bank chamber guardian
 					|| id == 7240 // zeah wc guild perrys axe shop
+					|| id == 532 // varrock zaff
+					|| id == 536 // varrock lowe
+					|| id == 537 // varrock shop keeper - swords
 			) {
 				npcdef_1_.actions = new String[5];
 				npcdef_1_.actions[0] = "Trade -";
@@ -200,6 +203,11 @@ final class NpcDefinitions implements Comparator {
 				npcdef_1_.actions[0] = "Talk-to";
 				npcdef_1_.actions[2] = "Open list -";
 				npcdef_1_.actions[3] = "Open shop -";
+			}
+			if (id == 518) { // varrock's new 'horvik'
+				npcdef_1_.name = "Horvik";
+				npcdef_1_.actions = new String[5];
+				npcdef_1_.actions[0] = "Trade -";
 			}
 
 			NpcComposite.field_z_465.method_z_void(npcdef_1_, id);
