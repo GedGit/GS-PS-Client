@@ -17,7 +17,7 @@ public class Settings {
 	/** 
 	 * Naming our frame & cache.
 	 */
-	public static final String NAME = "Salve-PS";
+	public static final String NAME = "Salve-PS - ALPHA";
 
 	/**
 	 * And an IP to connect to..

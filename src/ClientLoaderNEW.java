@@ -40,7 +40,7 @@ import loader.AppletStubContext;
  */
 public class ClientLoaderNEW implements ActionListener {
 
-	/**
+	/** 
 	 * Defining the client parameters via properties
 	 */
 	public static Properties client_parameters = new Properties();
