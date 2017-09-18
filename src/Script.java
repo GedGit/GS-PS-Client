@@ -378,31 +378,29 @@ public class Script extends Node {
 				} else {
 					i_37_++;
 				}
-				if (Class_ed.mapfunction == null) {
-					Class_ed.mapfunction = Class_df.getSpriteArray(Class_cj.spriteIndex, "mapfunction", "", 2136794212);
-				} else {
-					i_37_++;
-				}
+				i_37_++;
+//				if (Class_ed.mapfunction == null) {
+//					Class_ed.mapfunction = Class_df.getSpriteArray(Class_cj.spriteIndex, "mapfunction", "", 2136794212);
+//				} else {
+//					i_37_++;
+//				}
 				if (Class_cp.hitmarks == null) {
 					Class_cp.hitmarks = Class_df.getSpriteArray(Class_cj.spriteIndex, "hitmarks", "", 1741925324);
 				} else {
 					i_37_++;
 				}
 				if (Class_cq.headicons_pk == null) {
-					Class_cq.headicons_pk = Class_df.getSpriteArray(Class_cj.spriteIndex, "headicons_pk", "",
-							1847414006);
+					Class_cq.headicons_pk = Class_df.getSpriteArray(Class_cj.spriteIndex, "headicons_pk", "", 1847414006);
 				} else {
 					i_37_++;
 				}
-				if (Class_d.headicons_prayer == null) {
-					Class_d.headicons_prayer = Class_df.getSpriteArray(Class_cj.spriteIndex, "headicons_prayer", "",
-							2012775269);
+				if (Class_d.headicons_prayer == null) { 
+					Class_d.headicons_prayer = Class_df.getSpriteArray(Class_cj.spriteIndex, "headicons_prayer", "", 2012775269);
 				} else {
 					i_37_++;
 				}
 				if (IdentityKit.headicons_hint == null) {
-					IdentityKit.headicons_hint = Class_df.getSpriteArray(Class_cj.spriteIndex, "headicons_hint", "",
-							2145997107);
+					IdentityKit.headicons_hint = Class_df.getSpriteArray(Class_cj.spriteIndex, "headicons_hint", "", 2145997107);
 				} else {
 					i_37_++;
 				}
@@ -448,16 +446,27 @@ public class Script extends Node {
 							.append("%").toString();
 					Class_ax.field_as_430 = -730097710;
 				} else {
+					int int_1;
+					int int_2;
+					int int_3;
+					int int_4;
 					TypeFace.crowns = Player.mod_icons;
 					Class_de.mapedge.method_y_void();
-					final int i_38_ = (int) (Math.random() * 21.0) - 10;
-					final int i_39_ = (int) (Math.random() * 21.0) - 10;
-					final int i_40_ = (int) (Math.random() * 21.0) - 10;
-					final int i_41_ = (int) (Math.random() * 41.0) - 20;
-					for (final Rasterizer2D element : Class_ed.mapfunction) {
-						element.method_z_void(i_41_ + i_38_, i_41_ + i_39_, i_40_ + i_41_);
-					}
-					Class_et.mapscene[0].method_d_void(i_41_ + i_38_, i_41_ + i_39_, i_41_ + i_40_);
+					int_1 = (int) (Math.random() * 21.0D) - 10;
+					int_2 = (int) (Math.random() * 21.0D) - 10;
+					int_3 = (int) (Math.random() * 21.0D) - 10;
+					int_4 = (int) (Math.random() * 41.0D) - 20;
+					
+					//int_4 + int_1, int_4 + int_2, int_4 + int_3
+					Class_et.mapscene[0].method_d_void(int_4 + int_1, int_4 + int_2, int_4 + int_3);
+//					final int i_38_ = (int) (Math.random() * 21.0) - 10;
+//					final int i_39_ = (int) (Math.random() * 21.0) - 10;
+//					final int i_40_ = (int) (Math.random() * 21.0) - 10;
+//					final int i_41_ = (int) (Math.random() * 41.0) - 20;
+//					for (final Rasterizer2D element : Class_ed.mapfunction) {
+//						element.method_z_void(i_41_ + i_38_, i_41_ + i_39_, i_40_ + i_41_);
+//					}
+				//	Class_et.mapscene[0].method_d_void(i_41_ + i_38_, i_41_ + i_39_, i_41_ + i_40_);
 					Class_ax.updateStatusText = MenuText.LOADED_SPRITES;
 					Class_ax.field_as_430 = -730097710;
 					client.state = -1474732726;

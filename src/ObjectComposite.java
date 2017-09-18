@@ -2,6 +2,8 @@
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Canvas;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ObjectComposite extends CacheableNode {
 	static OffScreenModel[] field_m_313 = new OffScreenModel[4];
@@ -59,6 +61,11 @@ public class ObjectComposite extends CacheableNode {
 	public static final int field_fj_364 = 101;
 	static FileStore configArchiveRef;
 	public static final int field_by_366 = 59;
+	
+	public Map<Integer, Object> params = null;
+	private int[] configChangeDest;
+	private int varpID = -1;
+	private int configId = -1;
 
 	void method_z_void(final short i) {
 		try {
@@ -163,9 +170,11 @@ public class ObjectComposite extends CacheableNode {
 					this.retex_s[i_9_] = (short) rsbytebuffer.getShort();
 					this.retex_d[i_9_] = (short) rsbytebuffer.getShort();
 				}
-			} else if (i == 60) {
-				field_ax_342 = rsbytebuffer.getShort() * -244642875;
-			} else if (i == 62) {
+			}
+//			else if (i == 60) {
+//				field_ax_342 = rsbytebuffer.getShort() * -244642875;
+//			}
+			else if (i == 62) {
 				this.field_ar_344 = true;
 			} else if (i == 64) {
 				field_as_334 = false;
@@ -222,6 +231,54 @@ public class ObjectComposite extends CacheableNode {
 				}
 			} else if (i == 81) {
 				this.field_o_351 = rsbytebuffer.get() * 866240256;
+			}else if (i == 82) {
+				field_ax_342 = rsbytebuffer.getShort() * -244642875;
+			}else if (i == 92) {
+				varpID = rsbytebuffer.getShort() & 0xFFFF;
+				if (varpID == 0xFFFF) {
+					varpID = -1;
+				}
+
+				configId = rsbytebuffer.getShort() & 0xFFFF;
+				if (configId == 0xFFFF) {
+					configId = -1;
+				}
+
+				int var = rsbytebuffer.getShort() & 0xFFFF;
+				if (var == 0xFFFF) {
+					var = -1;
+				}
+
+				int length = rsbytebuffer.get() & 0xFF;
+				configChangeDest = new int[length + 2];
+
+				for (int index = 0; index <= length; ++index) {
+					configChangeDest[index] = rsbytebuffer.getShort() & 0xFFFF;
+					if (0xFFFF == configChangeDest[index]) {
+						configChangeDest[index] = -1;
+					}
+				}
+
+				configChangeDest[length + 1] = var;
+			} else if (i == 249) {
+				int length = rsbytebuffer.get() & 0xFF;
+
+				params = new HashMap<>(length);
+				for (int i1 = 0; i1 < length; i1++) {
+					boolean isString = (rsbytebuffer.getShort() & 0xFF) == 1;
+					int key = rsbytebuffer.getLEInt();
+					Object value;
+
+					if (isString) {
+						value = rsbytebuffer.getString();
+					}
+
+					else {
+						value = rsbytebuffer.getInt();
+					}
+
+					params.put(key, value);
+				}
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw GameCanvas.error(runtimeexception, "at.e()");
@@ -598,7 +655,7 @@ public class ObjectComposite extends CacheableNode {
 				}
 			}
 			//client.field_ow_2955 = -698410443 * (((i_62_ * i_59_) / 334) << 1);
-			int scale = i_61_ * (client.field_oc_2946 - client.field_oq_2945) / 100 + client.field_oq_2945;//  
+			int scale = i_61_ * (client.field_oc_2946 - client.field_oq_2945) / 100 + client.field_oq_2945;//
 			client.viewportScale = -698410443 * ((i_62_ * i_59_ * scale / 85504) << 1);// implemented for 88
 			
 			if ((i_58_ != (659941927 * client.field_om_2953)) || (i_59_ != (client.field_ou_2820 * 549621553))) {

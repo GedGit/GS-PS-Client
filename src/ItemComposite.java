@@ -12,7 +12,7 @@ public class ItemComposite extends CacheableNode {
 	static final NodeCache ITEMS = new NodeCache(64);
 	static NodeCache field_a_111 = new NodeCache(50);
 	static NodeCache field_h_112 = new NodeCache(200);
-	public int itemId;  
+	public int itemId;
 	int mesh;
 	public int yOf2d = 0;
 	short[] recol_s;
@@ -29,7 +29,7 @@ public class ItemComposite extends CacheableNode {
 	public int cost = -1214703551;
 	int sizeX;
 	int[] field_ah_129;
-	public String[] invOptions; 
+	public String[] invOptions;
 	int field_ax_131;
 	public int ambience;
 	int field_ar_133;
@@ -417,6 +417,18 @@ public class ItemComposite extends CacheableNode {
 				rsbytebuffer.getShort();
 			} else if (i == 149) {
 				rsbytebuffer.getShort();
+			} else if (i == 249) {
+				int amount = rsbytebuffer.getSigned();
+				for (int loop = 0; loop < amount; loop++) {
+					boolean string = rsbytebuffer.getSigned() == 1;
+					@SuppressWarnings("unused")
+					int key = rsbytebuffer.getLEInt();
+					if (string) {
+						rsbytebuffer.getString();
+					} else {
+						rsbytebuffer.getInt();
+					}
+				}
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw GameCanvas.error(runtimeexception, "aj.e()");

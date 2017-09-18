@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 
 /* NpcDef - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
@@ -44,6 +46,7 @@ public class NpcComposite extends CacheableNode {
 	static int localCoordinateY;
 	public String[] actions = new String[5];
 	short[] field_j_502;
+	public Map<Integer, Object> params = null;
 
 	static Class_fb method_n_fb(final FileStore class_fs, final int i, final int i_0_) {
 		Class_fb class_fb;
@@ -170,6 +173,25 @@ public class NpcComposite extends CacheableNode {
 				field_ac_468 = true;
 			} else if (i == 112) {
 				field_az_490 = rsbytebuffer.get() * 1627198463;
+			} else if (i == 249) {
+				int length = rsbytebuffer.getSigned() & 0xFF;
+
+				params = new HashMap<>(length);
+				for (int i1 = 0; i1 < length; i1++) {
+					boolean isString = (rsbytebuffer.getSigned() & 0xFF) == 1;
+					int key = rsbytebuffer.getLEInt();
+					Object value;
+
+					if (isString) {
+						value = rsbytebuffer.getString();
+					}
+
+					else {
+						value = rsbytebuffer.getInt();
+					}
+
+					params.put(key, value);
+				}
 			}
 		} catch (final RuntimeException runtimeexception) {
 			throw GameCanvas.error(runtimeexception, "az.y()");

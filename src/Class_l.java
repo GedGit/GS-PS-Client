@@ -100,7 +100,7 @@ public class Class_l {
 							}
 						}
 					}
-					client.field_mi_2922[(916003575 * client.field_mm_2717)] = Class_ed.mapfunction[i_15_];
+//					client.field_mi_2922[(916003575 * client.field_mm_2717)] = Class_ed.mapfunction[i_15_];
 					client.field_mu_2920[(client.field_mm_2717 * 916003575)] = i_16_;
 					client.field_mr_2921[(916003575 * client.field_mm_2717)] = i_17_;
 					client.field_mm_2717 += -1683503417;

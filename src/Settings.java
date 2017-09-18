@@ -17,12 +17,12 @@ public class Settings {
 	/** 
 	 * Naming our frame & cache.
 	 */
-	public static final String NAME = "Salve-PS - ALPHA";
+	public static final String NAME = "Salve-PS";
 
 	/**
 	 * And an IP to connect to..
 	 */
-	public static String IP = Settings.LOCAL_HOST ? "127.0.0.1" : "144.217.242.115"; 
+	public static String IP = Settings.LOCAL_HOST ? "127.0.0.1" : "158.69.213.65";//144.217.242.115 
 
 	/**
 	 * Should we hide the world list?
